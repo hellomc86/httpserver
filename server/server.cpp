@@ -135,6 +135,8 @@ handle_request(
         if (intervalSetofSecret.find(secretNumber) == intervalSetofSecret.end())
             return unauthorized(req.target());
     }
+    else
+        return bad_request("Secret value not provided!!!");
     // Attempt to open the file
     beast::error_code ec;
     http::file_body::value_type body;
